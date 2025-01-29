@@ -21,6 +21,18 @@ get_mode <- function(data) {
   return(mode_value)
 }
 
+#' Calculate Descriptive Statistics as a Data Frame
+#'
+#' This function calculates descriptive statistics for a given variable in a data frame and returns them as a data frame.
+#'
+#' @param df A data frame containing the variable.
+#' @param variable The name of the variable to calculate statistics for.
+#' @return A data frame with descriptive statistics.
+#' @examples
+#' set.seed(666)
+#' df <- tibble(x = sample(1:10, 150, replace = TRUE))
+#' ExcelStats_df(df, "x")
+#' @export
 ExcelStats_df <- function(df, variable) {
   data <- df[[variable]]
 
