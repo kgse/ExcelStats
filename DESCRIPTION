@@ -1,0 +1,16 @@
+Package: ExcelStats
+Type: Package
+Title: A Helper Package for Descriptive Statistics in Excel Format
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Karl-Gunnar", "Severinsen",
+      email = "kgse@hvl.no",
+      role = c("aut", "cre")
+    )
+  )
+Description: This package provides functions to calculate and display descriptive statistics.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
