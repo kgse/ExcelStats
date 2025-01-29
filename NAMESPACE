@@ -2,3 +2,10 @@
 
 export(ExcelStats_df)
 export(ExcelStats_kbl)
+import(dplyr)
+import(e1071)
+import(kableExtra)
+import(knitr)
+import(modeest)
+import(tibble)
+import(tidyr)

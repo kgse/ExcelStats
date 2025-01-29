@@ -1,7 +1,7 @@
 Package: ExcelStats
 Type: Package
 Title: A Helper Package for Descriptive Statistics in Excel Format
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(
     person(
       "Karl-Gunnar", "Severinsen",
@@ -14,3 +14,11 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
+Imports:
+    dplyr,
+    tibble,
+    tidyr,
+    e1071,
+    modeest,
+    knitr,
+    kableExtra
