@@ -19,6 +19,7 @@ This function calculates descriptive statistics for a given variable in a data f
 }
 \examples{
 set.seed(666)
+library(tibble)
 df <- tibble(x = sample(1:10, 150, replace = TRUE))
 ExcelStats_df(df, "x")
 }

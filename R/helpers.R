@@ -5,6 +5,7 @@
 #' @import modeest
 #' @import knitr
 #' @import kableExtra
+#' @import tibble
 
 # Custom function to format numbers
 format_number <- function(x) {

@@ -24,6 +24,7 @@ This function calculates descriptive statistics and returns them as a data frame
 
    ```r
    library(ExcelStats)
+   library(tibble)
    
    # Example data
    set.seed(666)  # For reproducibility
@@ -46,6 +47,7 @@ This function calculates descriptive statistics and returns them as a kable obje
 
    ```r
    library(ExcelStats)
+   library(tibble)
    
    # Example data
    set.seed(666)  # For reproducibility
@@ -58,8 +60,50 @@ This function calculates descriptive statistics and returns them as a kable obje
    print(stats_kable)
    ```
 
+### 3. ExcelStats_cat_df
+
+This function calculates descriptive statistics for a categorical variable and returns them as a data frame.
+
+### Usage
+
+   ```{r}
+   #| warning: false
+   library(ExcelStats)
+   library(tibble)
+
+   # Example data
+   set.seed(666)  # For reproducibility
+   df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
+
+   # Calculate descriptive statistics for categorical variable
+   stats_cat_df <- ExcelStats_cat_df(df, "Kjønn", "sofrwrk")
+
+   # Print the data frame
+   print(stats_cat_df)
+   ```
+
+### 4. ExcelStats_cat_kbl
+
+This function calculates descriptive statistics for a categorical variable and returns them as a kable object for easy printing to PDF.
+
+### Usage
+
+   ```{r}
+   #| warning: false
+   library(ExcelStats)
+   library(tibble)
+
+   # Example data
+   set.seed(666)  # For reproducibility
+   df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
+
+   # Calculate descriptive statistics for categorical variable and print as kable (for .pdf)
+   stats_cat_kbl <- ExcelStats_cat_kbl(df, "Kjønn", "sofrwrk")
+
+   # Print the kable object
+   print(stats_cat_kbl)
+   ```
 
 ## Conclusion
 
 ExcelStats makes it easy to calculate and display the same descriptive statistics as in Excel in R. 
-

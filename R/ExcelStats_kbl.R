@@ -9,6 +9,7 @@
 #' @return A kable object with descriptive statistics.
 #' @examples
 #' set.seed(666)
+#' library(tibble)
 #' df <- tibble(x = sample(1:10, 150, replace = TRUE))
 #' ExcelStats_kbl(df, "x")
 #' @export
