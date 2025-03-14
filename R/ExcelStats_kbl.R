@@ -8,11 +8,13 @@
 #' @param ... Unquoted variable names to calculate statistics for.
 #' @return A kable object with descriptive statistics for each variable.
 #' @examples
+#' library(tibble)
+#' library(ExcelStats)
 #' set.seed(666)
 #' df <- tibble(x = sample(1:10, 150, replace = TRUE), y = sample(18:67, 150, replace = TRUE))
-#' df %>% ExcelStats_kbl(x, y)
+#' df %>% ExcelStats_kbl(x, y, digits = 2)
 #' @export
-ExcelStats_kbl <- function(df, ...) {
+ExcelStats_kbl <- function(df, ..., digits = 2) {
   variables <- enquos(...)
 
   stats_list <- lapply(variables, function(variable) {
@@ -44,7 +46,7 @@ ExcelStats_kbl <- function(df, ...) {
   stats <- Reduce(function(x, y) full_join(x, y, by = "Statistikk"), stats_list)
 
   stats <- stats %>%
-    mutate(across(-Statistikk, format_number))
+    mutate(across(where(is.numeric), ~ format_number(.x, digits)))  # Round numeric values to specified decimal places
 
   # Convert to kable and add header
   stats_kable <- kable(stats, format = "latex", booktabs = TRUE, linesep = "") %>%

@@ -4,7 +4,7 @@
 \alias{ExcelStats_cat_df}
 \title{Calculate Descriptive Statistics for a Categorical Variable as a Data Frame}
 \usage{
-ExcelStats_cat_df(df, categorical_var, value_var)
+ExcelStats_cat_df(df, categorical_var, value_var, digits = 2)
 }
 \arguments{
 \item{df}{A data frame containing the variables.}
@@ -20,7 +20,9 @@ A data frame with descriptive statistics for each category.
 This function calculates descriptive statistics for a categorical variable in a data frame and returns them as a data frame.
 }
 \examples{
+library(tibble)
+library(ExcelStats)
 set.seed(666)
 df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-df \%>\% ExcelStats_cat_df(Kjønn, sofrwrk)
+df \%>\% ExcelStats_cat_df(Kjønn, sofrwrk, digits = 2)
 }

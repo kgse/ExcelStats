@@ -9,9 +9,9 @@
 #' @import rlang
 
 # Custom function to format numbers
-format_number <- function(x) {
+format_number <- function(x, digits = 6) {
   if (is.numeric(x)) {
-    return(formatC(x, format = "f", digits = 6, drop0trailing = TRUE))
+    return(formatC(x, format = "f", digits = digits, drop0trailing = TRUE))
   }
   return(x)
 }

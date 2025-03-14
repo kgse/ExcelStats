@@ -34,6 +34,7 @@ The output is more customisable
 
 ```{r}
 #| warning: false
+#| message: false
 library(ExcelStats)
 library(tibble)
 
@@ -44,7 +45,7 @@ df <- tibble(x = sample(1:10, 150, replace = TRUE),
 
 # Calculate descriptive statistics
 stats_df <- df |> 
-  ExcelStats_df(x, y)
+  ExcelStats_df(x, y, digits = 2)
 
 # Print the data frame
 print(stats_df)
@@ -70,7 +71,7 @@ df <- tibble(x = sample(1:10, 150, replace = TRUE),
 
 # Calculate descriptive statistics and print as kable (for .pdf)
 stats_kable <- df |> 
-  ExcelStats_kbl(x, y)
+  ExcelStats_kbl(x, y, digits = 2)
 
 # Print the kable object
 print(stats_kable)
@@ -93,7 +94,7 @@ df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk 
 
 # Calculate descriptive statistics for categorical variable
 stats_cat_df <- df |> 
-  ExcelStats_cat_df(Kjønn, sofrwrk)
+  ExcelStats_cat_df(Kjønn, sofrwrk, digits = 2)
 
 # Print the data frame
 print(stats_cat_df)
@@ -116,7 +117,7 @@ df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk 
 
 # Calculate descriptive statistics for categorical variable and print as kable (for .pdf)
 stats_cat_kbl <- df |> 
-  ExcelStats_cat_kbl(Kjønn, sofrwrk)
+  ExcelStats_cat_kbl(Kjønn, sofrwrk, digits = 2)
 
 # Print the kable object
 print(stats_cat_kbl)

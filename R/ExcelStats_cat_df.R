@@ -7,12 +7,14 @@
 #' @param value_var The name of the value variable.
 #' @return A data frame with descriptive statistics for each category.
 #' @examples
+#' library(tibble)
+#' library(ExcelStats)
 #' set.seed(666)
 #' df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-#' df %>% ExcelStats_cat_df(Kjønn, sofrwrk)
+#' df %>% ExcelStats_cat_df(Kjønn, sofrwrk, digits = 2)
 #' @export
 #' @importFrom stats sd median var qt setNames
-ExcelStats_cat_df <- function(df, categorical_var, value_var) {
+ExcelStats_cat_df <- function(df, categorical_var, value_var, digits = 2) {
   categorical_var <- enquo(categorical_var)
   value_var <- enquo(value_var)
 
@@ -38,7 +40,7 @@ ExcelStats_cat_df <- function(df, categorical_var, value_var) {
     pivot_wider(names_from = !!categorical_var, values_from = Verdi)
 
   data <- data %>%
-    mutate(across(everything(), format_number))
+    mutate(across(everything(), ~ format_number(.x, digits)))
 
   return(data)
 }

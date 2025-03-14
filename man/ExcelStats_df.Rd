@@ -4,7 +4,7 @@
 \alias{ExcelStats_df}
 \title{Calculate Descriptive Statistics for Multiple Variables as a Data Frame}
 \usage{
-ExcelStats_df(df, ...)
+ExcelStats_df(df, ..., digits = 2)
 }
 \arguments{
 \item{df}{A data frame containing the variables.}
@@ -18,7 +18,9 @@ A data frame with descriptive statistics for each variable.
 This function calculates descriptive statistics for given variables in a data frame and returns them as a data frame.
 }
 \examples{
+library(tibble)
+library(ExcelStats)
 set.seed(666)
 df <- tibble(x = sample(1:10, 150, replace = TRUE), y = sample(18:67, 150, replace = TRUE))
-df \%>\% ExcelStats_df(x, y)
+df \%>\% ExcelStats_df(x, y, digits = 2)
 }

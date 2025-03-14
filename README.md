@@ -33,7 +33,7 @@ This function calculates descriptive statistics and returns them as a data frame
    
    # Calculate descriptive statistics
    stats_df <- df |> 
-      ExcelStats_df(x, y)
+      ExcelStats_df(x, y, digits = 2)
    
    # Print the data frame
    print(stats_df)
@@ -58,7 +58,7 @@ This function calculates descriptive statistics and returns them as a kable obje
    
    # Calculate descriptive statistics and print as kable (for .pdf)
    stats_kbl <- df |> 
-      ExcelStats_kbl(x, y)
+      ExcelStats_kbl(x, y, digits = 2)
    
    # Print the data frame
    print(stats_kable)
@@ -81,7 +81,7 @@ This function calculates descriptive statistics for a categorical variable and r
 
    # Calculate descriptive statistics for categorical variable
    stats_cat_df <- df |> 
-      ExcelStats_cat_df(Kjønn, sofrwrk)
+      ExcelStats_cat_df(Kjønn, sofrwrk, digits = 2)
 
    # Print the data frame
    print(stats_cat_df)
@@ -104,7 +104,7 @@ This function calculates descriptive statistics for a categorical variable and r
 
    # Calculate descriptive statistics for categorical variable and print as kable (for .pdf)
    stats_cat_kbl <- df |> 
-      ExcelStats_cat_kbl(Kjønn, sofrwrk)
+      ExcelStats_cat_kbl(Kjønn, sofrwrk, digits = 2)
 
    # Print the kable object
    print(stats_cat_kbl)
