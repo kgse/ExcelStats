@@ -70,19 +70,18 @@ This function calculates descriptive statistics for a categorical variable and r
 
 ### Usage
 
-   ```{r}
-   #| warning: false
+   ```r
    library(ExcelStats)
    library(tibble)
-
+   
    # Example data
    set.seed(666)  # For reproducibility
    df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-
+   
    # Calculate descriptive statistics for categorical variable
    stats_cat_df <- df |> 
       ExcelStats_cat_df(Kjønn, sofrwrk, digits = 2)
-
+   
    # Print the data frame
    print(stats_cat_df)
    ```
@@ -93,19 +92,18 @@ This function calculates descriptive statistics for a categorical variable and r
 
 ### Usage
 
-   ```{r}
-   #| warning: false
+   ```r
    library(ExcelStats)
    library(tibble)
-
+   
    # Example data
    set.seed(666)  # For reproducibility
    df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-
+   
    # Calculate descriptive statistics for categorical variable and print as kable (for .pdf)
    stats_cat_kbl <- df |> 
       ExcelStats_cat_kbl(Kjønn, sofrwrk, digits = 2)
-
+   
    # Print the kable object
    print(stats_cat_kbl)
    ```
