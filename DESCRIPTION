@@ -1,7 +1,7 @@
 Package: ExcelStats
 Type: Package
 Title: A Helper Package for Descriptive Statistics in Excel Format
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: c(
     person(
       "Karl-Gunnar", "Severinsen",

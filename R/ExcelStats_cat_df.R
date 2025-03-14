@@ -8,27 +8,13 @@
 #' @return A data frame with descriptive statistics for each category.
 #' @examples
 #' set.seed(666)
-#' library(tibble)
 #' df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-#' ExcelStats_cat_df(df, "Kjønn", "sofrwrk")
+#' df %>% ExcelStats_cat_df(Kjønn, sofrwrk)
 #' @export
 #' @importFrom stats sd median var qt setNames
 ExcelStats_cat_df <- function(df, categorical_var, value_var) {
-  # Check if the variables exist in the data frame
-  if (!categorical_var %in% names(df)) {
-    stop(paste("Categorical variable", categorical_var, "not found in the data frame"))
-  }
-  if (!value_var %in% names(df)) {
-    stop(paste("Value variable", value_var, "not found in the data frame"))
-  }
-
-  # Convert categorical variable to factor if it is character
-  if (is.character(df[[categorical_var]])) {
-    df[[categorical_var]] <- as.factor(df[[categorical_var]])
-  }
-
-  categorical_var <- ensym(categorical_var)
-  value_var <- ensym(value_var)
+  categorical_var <- enquo(categorical_var)
+  value_var <- enquo(value_var)
 
   data <- df %>%
     group_by(!!categorical_var) %>%

@@ -2,24 +2,23 @@
 % Please edit documentation in R/ExcelStats_df.R
 \name{ExcelStats_df}
 \alias{ExcelStats_df}
-\title{Calculate Descriptive Statistics as a Data Frame}
+\title{Calculate Descriptive Statistics for Multiple Variables as a Data Frame}
 \usage{
-ExcelStats_df(df, variable)
+ExcelStats_df(df, ...)
 }
 \arguments{
-\item{df}{A data frame containing the variable.}
+\item{df}{A data frame containing the variables.}
 
-\item{variable}{The name of the variable to calculate statistics for.}
+\item{...}{Unquoted variable names to calculate statistics for.}
 }
 \value{
-A data frame with descriptive statistics.
+A data frame with descriptive statistics for each variable.
 }
 \description{
-This function calculates descriptive statistics for a given variable in a data frame and returns them as a data frame.
+This function calculates descriptive statistics for given variables in a data frame and returns them as a data frame.
 }
 \examples{
 set.seed(666)
-library(tibble)
-df <- tibble(x = sample(1:10, 150, replace = TRUE))
-ExcelStats_df(df, "x")
+df <- tibble(x = sample(1:10, 150, replace = TRUE), y = sample(18:67, 150, replace = TRUE))
+df \%>\% ExcelStats_df(x, y)
 }

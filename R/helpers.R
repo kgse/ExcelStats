@@ -6,6 +6,7 @@
 #' @import knitr
 #' @import kableExtra
 #' @import tibble
+#' @import rlang
 
 # Custom function to format numbers
 format_number <- function(x) {
@@ -19,7 +20,7 @@ format_number <- function(x) {
 get_mode <- function(data) {
   mode_value <- suppressWarnings(mfv(data))
   if (length(mode_value) > 1) {
-    return(NA)  # Return NA if there are multiple modes
+    return(max(mode_value))  # Return the highest mode
   }
   return(mode_value)
 }

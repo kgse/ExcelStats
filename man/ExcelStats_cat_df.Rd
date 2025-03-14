@@ -21,7 +21,6 @@ This function calculates descriptive statistics for a categorical variable in a 
 }
 \examples{
 set.seed(666)
-library(tibble)
 df <- tibble(Kjønn = sample(c("Kvinne", "Mann"), 150, replace = TRUE), sofrwrk = rnorm(150))
-ExcelStats_cat_df(df, "Kjønn", "sofrwrk")
+df \%>\% ExcelStats_cat_df(Kjønn, sofrwrk)
 }
